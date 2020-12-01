@@ -1,3 +1,4 @@
+// imports
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
@@ -45,15 +46,11 @@ const App = () => {
 
   // delete note
   const removeNote = (id) => {
-
-    // muestro ID (undefined)
-    console.log(id);
-
     axios.delete('/api/notes/' + id)
       .then(res => {
         const newNotes = notes.filter(note => note._id !== id);
         setNotes(newNotes);
-      });
+    });
   };
 
   // render JSX
